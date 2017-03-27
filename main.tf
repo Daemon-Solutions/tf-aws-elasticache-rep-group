@@ -31,5 +31,5 @@ resource "aws_elasticache_replication_group" "elasticache-repgroup" {
 resource "aws_elasticache_subnet_group" "elasticache-repgroup" {
   name        = "${var.envname}-${var.name}-elasticache"
   description = "${var.envname}-${var.name}-elasticache"
-  subnet_ids  = ["${var.private_subnets}"]
+  subnet_ids  = ["${module.vpc.private_subnets}"]
 }
