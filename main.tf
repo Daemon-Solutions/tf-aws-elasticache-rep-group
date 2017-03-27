@@ -1,5 +1,5 @@
 resource "aws_security_group" "elasticache-repgroup-sg" {
-  name        = "${var.name}"
+  name        = "${var.replication_group_name}"
   description = "Elasticache security group for ${var.replication_group_name}"
   vpc_id      = "${var.vpc_id}"
 }
@@ -15,13 +15,13 @@ resource "aws_security_group_rule" "elasticache-repgroup-in" {
 
 resource "aws_elasticache_replication_group" "elasticache-repgroup" {
   replication_group_id          = "${var.envname}-${var.envtype}-${var.replication_group_name}"
-  replication_group_description = "${var.envname}-${var.name}-elasticache-replication-group"
+  replication_group_description = "${var.envname}-${var.replication_group_name}-elasticache-replication-group"
   node_type                     = "${var.node_type}"
   number_cache_clusters         = "${var.cluster_size}"
   port                          = "${var.port}"
   engine_version                = "${var.engine_version}"
   parameter_group_name          = "${var.parameter_group}"
-  subnet_group_name             = "${aws_elasticache_subnet_group.elasticache-repgroup.name}"
+  subnet_group_name             = "${aws_elasticache_subnet_group.elasticache-repgroup.replication_group_name}"
   security_group_ids            = ["${aws_security_group.elasticache-repgroup-sg.id}"]
   apply_immediately             = true
   snapshot_window               = "${var.snapshot_window}"
