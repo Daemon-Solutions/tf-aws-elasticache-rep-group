@@ -1,6 +1,6 @@
 resource "aws_security_group" "elasticache-repgroup-sg" {
   name        = "${var.name}"
-  description = "Elasticache security group for ${var.name}"
+  description = "Elasticache security group for ${var.replication_group_name}"
   vpc_id      = "${var.vpc_id}"
 }
 
@@ -29,7 +29,7 @@ resource "aws_elasticache_replication_group" "elasticache-repgroup" {
 }
 
 resource "aws_elasticache_subnet_group" "elasticache-repgroup" {
-  name        = "${var.envname}-${var.name}-elasticache"
-  description = "${var.envname}-${var.name}-elasticache"
+  name        = "${var.envname}-${var.replication_group_name}-elasticache"
+  description = "${var.envname}-${var.replication_group_name}-elasticache"
   subnet_ids  = ["${var.private_subnets}"]
 }
