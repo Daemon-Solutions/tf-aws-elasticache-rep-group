@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "elasticache-repgroup-in" {
   protocol          = "tcp"
   from_port         = "${var.port}"
   to_port           = "${var.port}"
-  security_group_id = "${aws_security_group.elasticache-repgroup.id}"
+  security_group_id = "${aws_security_group.elasticache-repgroup-sg.id}"
   cidr_blocks       = ["${var.vpc_cidr}"]
 }
 
@@ -21,7 +21,7 @@ resource "aws_elasticache_replication_group" "elasticache-repgroup" {
   port                          = "${var.port}"
   engine_version                = "${var.engine_version}"
   parameter_group_name          = "${var.parameter_group}"
-  subnet_group_name             = "${aws_elasticache_subnet_group.elastiicache-repgroup.name}"
+  subnet_group_name             = "${aws_elasticache_subnet_group.elasticache-repgroup.name}"
   security_group_ids            = ["${aws_security_group.elasticache-repgroup-sg.id}"]
   apply_immediately             = true
   snapshot_window               = "${var.snapshot_window}"
@@ -31,5 +31,5 @@ resource "aws_elasticache_replication_group" "elasticache-repgroup" {
 resource "aws_elasticache_subnet_group" "elasticache-repgroup" {
   name        = "${var.envname}-${var.name}-elasticache"
   description = "${var.envname}-${var.name}-elasticache"
-  subnet_ids  = ["${module.vpc.private_subnets}"]
+  subnet_ids  = ["${var.private_subnets}"]
 }

@@ -13,18 +13,19 @@ variable "ami" {
 	default = "ami-787a320b"
 }
 
-variable "instance_type" {
+variable "node_type" {
   default = "cache.m3.medium"
 }
 
 /* Cluster specs */
-variable "number_cache_clusters" {
+variable "cluster_size" {
 	default = "3"
 }
 
 /* Networking */
-variable "subnets" {
+variable "private_subnets" {
   type = "list"
+	default = []
 }
 
 variable "port" {
@@ -40,7 +41,7 @@ variable "engine_version" {
   default = "3.2.4"
 }
 
-variable "parameter_group_name" {
+variable "parameter_group" {
   default = "default.redis3.2"
 }
 
