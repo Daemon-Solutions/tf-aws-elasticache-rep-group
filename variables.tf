@@ -6,7 +6,9 @@ variable "key_name"              {}
 variable "vpc_id" {}
 variable "vpc_cidr" {}
 
-variable "name" { default = "" }
+variable "replication_group_name" {
+	default = "elasticache"
+}
 
 /* Instance specs */
 variable "ami" {

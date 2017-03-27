@@ -14,7 +14,7 @@ resource "aws_security_group_rule" "elasticache-repgroup-in" {
 }
 
 resource "aws_elasticache_replication_group" "elasticache-repgroup" {
-  replication_group_id          = "${var.name}"
+  replication_group_id          = "${var.envname}-${var.envtype}-${var.replication_group_name}"
   replication_group_description = "${var.envname}-${var.name}-elasticache-replication-group"
   node_type                     = "${var.node_type}"
   number_cache_clusters         = "${var.cluster_size}"
