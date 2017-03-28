@@ -1,16 +1,20 @@
 /* VPC/Environment variables */
-variable "customer"              {}
-variable "envname"               {}
-variable "envtype"               {}
-variable "key_name"              {}
+variable "customer" {}
+variable "envname" {}
+variable "envtype" {}
+variable "key_name" {}
 variable "vpc_id" {}
 variable "vpc_cidr" {}
+
+variable "name" {
+  default = "testdefaultname"
+}
 
 variable "replication_group_name" {}
 
 /* Instance specs */
 variable "ami" {
-	default = "ami-787a320b"
+  default = "ami-787a320b"
 }
 
 variable "node_type" {
@@ -19,13 +23,13 @@ variable "node_type" {
 
 /* Cluster specs */
 variable "cluster_size" {
-	default = "3"
+  default = "3"
 }
 
 /* Networking */
 variable "private_subnets" {
-  type = "list"
-	default = []
+  type    = "list"
+  default = []
 }
 
 variable "port" {
