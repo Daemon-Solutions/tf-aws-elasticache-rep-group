@@ -29,7 +29,7 @@ resource "aws_elasticache_replication_group" "elasticache-repgroup" {
 }
 
 resource "aws_elasticache_subnet_group" "elasticache-repgroup" {
-  name        = "${var.name}"                                              #"${var.envname}-${var.replication_group_name}-elasticache"
+  name        = "${var.envname}-${var.replication_group_name}-elasticache"
   description = "${var.envname}-${var.replication_group_name}-elasticache"
   subnet_ids  = ["${var.private_subnets}"]
 }
