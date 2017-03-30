@@ -30,9 +30,9 @@ The only required fields for the replication group module are:
 
 `replication_group_name` the name of the replication group <br/>
 `cluster_size` the number of clusters (if you have multiple AZs, match this to the number) <br/>
-`private subnets` a list of subnets to pass 
-`snapshot_window` the time at which to take snapshots. example "01:00-08:00"
-`snapshot_retention_limit` how many days to retain snapshots
+`private subnets` a list of subnets to pass <br/>
+`snapshot_window` the time at which to take snapshots. example "01:00-08:00" <br/>
+`snapshot_retention_limit` how many days to retain snapshots <br/>
 
 The following are defaults: <br/>
 `node type` cache.m3.medium <br/>
