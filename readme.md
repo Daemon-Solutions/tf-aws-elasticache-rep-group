@@ -28,13 +28,13 @@ cluster_size           = "3"
 
 The only required fields for the replication group module are:
 
-`replication_group_name` the name of the replication group 
+`replication_group_name` the name of the replication group <br/>
 `cluster_size` the number of clusters (if you have multiple AZs, match this to the number)
 
-The following are defaults:
-`node type` cache.m3.medium
-`cluster size` 3
-`port` 6379
-`engine` redis
-`engine version` 3.2.4
+The following are defaults: <br/>
+`node type` cache.m3.medium <br/>
+`cluster size` 3 <br/>
+`port` 6379 <br/>
+`engine` redis <br/>
+`engine version` 3.2.4 <br/>
 
