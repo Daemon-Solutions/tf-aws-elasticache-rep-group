@@ -29,7 +29,8 @@ cluster_size           = "3"
 The only required fields for the replication group module are:
 
 `replication_group_name` the name of the replication group <br/>
-`cluster_size` the number of clusters (if you have multiple AZs, match this to the number)
+`cluster_size` the number of clusters (if you have multiple AZs, match this to the number) <br/>
+`subnet_ids` a list of subnets to pass 
 
 The following are defaults: <br/>
 `node type` cache.m3.medium <br/>
