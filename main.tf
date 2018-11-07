@@ -24,6 +24,9 @@ resource "aws_elasticache_replication_group" "elasticache-repgroup" {
   subnet_group_name             = "${aws_elasticache_subnet_group.elasticache-repgroup.name}"
   security_group_ids            = ["${aws_security_group.elasticache-repgroup-sg.id}"]
   apply_immediately             = true
+  at_rest_encryption_enabled    = "${var.rest_encryption_enabled}"
+  transit_encryption_enabled    = "${var.transit_encryption_enabled}"
+  maintenance_window            = "${var.maintenance_window}"
   snapshot_window               = "${var.snapshot_window}"
   snapshot_retention_limit      = "${var.snapshot_retention_limit}"
 }
